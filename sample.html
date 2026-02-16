@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hehe 😳💗</title>
+
+  <style>
+    :root{
+      --hot:#ff2f7a;
+      --pink:#ff4d8d;
+      --shadow: 0 18px 45px rgba(0,0,0,.12);
+      --card: rgba(255,255,255,.92);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:
+        radial-gradient(circle at 20% 10%, #ffe0f0 0%, transparent 45%),
+        radial-gradient(circle at 90% 20%, #fff0d8 0%, transparent 50%),
+        linear-gradient(135deg, #ffd8ee, #fff2d6);
+      overflow:hidden;
+      padding: clamp(10px, 3vw, 22px);
+    }
+
+    /* floating background stickers */
+    .bg-float{
+      position:absolute;
+      opacity:.16;
+      animation: floaty linear infinite;
+      pointer-events:none;
+      filter: blur(.1px);
+      user-select:none;
+    }
+    @keyframes floaty{
+      0%{ transform: translateY(110vh) rotate(0deg); }
+      100%{ transform: translateY(-30vh) rotate(360deg); }
+    }
+
+    /* MAIN CARD */
+    .card{
+      width: min(860px, 100%);
+      max-height: calc(100vh - 18px);
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+
+      background: var(--card);
+      border-radius: clamp(18px, 4vw, 34px);
+      padding: clamp(14px, 3vw, 28px);
+      box-shadow: var(--shadow);
+      position:relative;
+      text-align:center;
+      border: 2px solid rgba(255, 77, 141, 0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    /* hide scrollbar but keep scroll */
+    .card::-webkit-scrollbar{ width:0px; height:0px; }
+
+    .topRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom: clamp(6px, 1.5vw, 12px);
+      flex-wrap:wrap;
+    }
+
+    .miniLabel{
+      font-weight:900;
+      color:#444;
+      font-size: clamp(.85rem, 2.2vw, 1rem);
+    }
+
+    .soundToggle{
+      border:none;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-weight:900;
+      cursor:pointer;
+      background: rgba(255, 47, 122, 0.1);
+      color: var(--hot);
+      transition:.2s ease;
+      font-size: clamp(.85rem, 2.2vw, 1rem);
+      white-space:nowrap;
+    }
+    .soundToggle:hover{ transform: scale(1.05); }
+
+    .title{
+      font-size: clamp(1.55rem, 5vw, 2.35rem);
+      font-weight:900;
+      color:var(--hot);
+      line-height:1.12;
+      word-break: break-word;
+    }
+
+    .subtitle{
+      margin-top: clamp(6px, 1.5vw, 10px);
+      color:#333;
+      font-size: clamp(.95rem, 2.7vw, 1.1rem);
+      line-height:1.45;
+    }
+
+    /* name input */
+    .nameRow{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .nameRow input{
+      width: min(340px, 100%);
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 47, 122, 0.18);
+      outline:none;
+      font-weight:800;
+      font-size: 1rem;
+      background: rgba(255,255,255,.85);
+      min-width: 0;
+    }
+
+    .nameRow button{
+      border:none;
+      padding: 12px 16px;
+      border-radius: 16px;
+      cursor:pointer;
+      font-weight:900;
+      background: var(--hot);
+      color:white;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .nameRow button:hover{ transform: scale(1.04); }
+
+    /* kawaii face */
+    .kawaiiWrap{
+      margin: clamp(14px, 3vw, 18px) auto 10px;
+      width: clamp(120px, 34vw, 180px);
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(180deg, #fff, #fff3fa);
+      border-radius: clamp(22px, 6vw, 42px);
+      box-shadow: 0 12px 28px rgba(255, 77, 141, .16);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      border: 2px solid rgba(255, 77, 141, 0.18);
+      animation: bob 1.8s ease-in-out infinite;
+    }
+    @keyframes bob{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-8px); }
+    }
+
+    .face{
+      width: clamp(90px, 26vw, 125px);
+      height: clamp(90px, 26vw, 125px);
+      position:relative;
+    }
+
+    .eye{
+      width: clamp(14px, 4vw, 18px);
+      height: clamp(20px, 6vw, 26px);
+      background:#222;
+      border-radius:20px;
+      position:absolute;
+      top: 30%;
+    }
+    .eye.left{ left: 18%; }
+    .eye.right{ right: 18%; }
+
+    .eye::after{
+      content:"";
+      width: clamp(5px, 1.7vw, 7px);
+      height: clamp(5px, 1.7vw, 7px);
+      background:white;
+      border-radius:50%;
+      position:absolute;
+      top: 18%;
+      left: 25%;
+      opacity:.95;
+    }
+
+    .mouth{
+      width: clamp(20px, 6vw, 28px);
+      height: clamp(10px, 3vw, 14px);
+      border: 3px solid #222;
+      border-top:none;
+      border-radius:0 0 20px 20px;
+      position:absolute;
+      top: 62%;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .cheek{
+      width: clamp(20px, 7vw, 28px);
+      height: clamp(12px, 4vw, 16px);
+      background: rgba(255, 77, 141, 0.28);
+      border-radius:18px;
+      position:absolute;
+      top: 56%;
+      filter: blur(.2px);
+      animation: blush 1.2s ease-in-out infinite;
+    }
+    .cheek.left{ left: -2%; }
+    .cheek.right{ right: -2%; }
+
+    @keyframes blush{
+      0%,100%{ transform: scale(1); opacity:.8; }
+      50%{ transform: scale(1.1); opacity:1; }
+    }
+
+    .tinyHeart{
+      position:absolute;
+      font-size: clamp(16px, 4vw, 22px);
+      top: 10px;
+      right: 14px;
+      animation: pop 1.1s infinite;
+      user-select:none;
+    }
+    @keyframes pop{
+      0%,100%{ transform: scale(1) rotate(0deg); }
+      50%{ transform: scale(1.15) rotate(-8deg); }
+    }
+
+    .question{
+      margin: clamp(10px, 2.5vw, 16px) 0 10px;
+      font-size: clamp(1rem, 2.8vw, 1.15rem);
+      color:#222;
+      font-weight:900;
+    }
+
+    /* buttons */
+    .buttons{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(10px, 2.2vw, 14px);
+      margin-top: 10px;
+    }
+
+    button.action{
+      border:none;
+      padding: clamp(10px, 2.6vw, 14px) clamp(10px, 2.6vw, 16px);
+      border-radius: 18px;
+      font-size: clamp(.95rem, 2.6vw, 1.05rem);
+      cursor:pointer;
+      transition:.22s ease;
+      font-weight:900;
+      user-select:none;
+      width:100%;
+      white-space:nowrap;
+      min-width: 0;
+    }
+
+    #sweetBtn{
+      background: var(--hot);
+      color:white;
+      box-shadow: 0 12px 24px rgba(255, 47, 122, .25);
+    }
+    #sweetBtn:hover{ transform: scale(1.04); }
+
+    #sillyBtn{
+      background:white;
+      color:var(--hot);
+      border:2px solid rgba(255, 47, 122, .6);
+    }
+    #sillyBtn:hover{ transform: scale(.98); }
+
+    #giftBtn{
+      background: linear-gradient(90deg, #ff7ab0, #ff2f7a);
+      color:white;
+      box-shadow: 0 12px 24px rgba(255, 47, 122, .22);
+    }
+    #giftBtn:hover{ transform: scale(1.04); }
+
+    #cameraBtn{
+      background: rgba(0,0,0,.86);
+      color:white;
+      box-shadow: 0 12px 24px rgba(0,0,0,.16);
+    }
+    #cameraBtn:hover{ transform: scale(1.04); }
+
+    /* Panel */
+    .panel{
+      margin-top: clamp(14px, 3vw, 18px);
+      display:none;
+      padding: clamp(12px, 2.6vw, 16px);
+      border-radius: 22px;
+      background: rgba(255, 77, 141, 0.06);
+      border: 1px solid rgba(255, 77, 141, 0.14);
+      text-align:center;
+    }
+
+    .line{
+      font-size: clamp(1.02rem, 3vw, 1.2rem);
+      color:#1e1e1e;
+      line-height:1.55;
+      font-weight:900;
+      word-break: break-word;
+    }
+
+    .hint{
+      margin-top: 8px;
+      font-size: clamp(.85rem, 2.4vw, .95rem);
+      color:#444;
+      opacity:.9;
+    }
+
+    /* blush meter */
+    .meterWrap{
+      margin-top: 14px;
+      text-align:left;
+    }
+
+    .meterTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:8px;
+      font-weight:900;
+      color:#333;
+      font-size: clamp(.85rem, 2.3vw, .95rem);
+      gap: 10px;
+    }
+
+    .bar{
+      width:100%;
+      height: 16px;
+      border-radius:999px;
+      background: rgba(0,0,0,.06);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .fill{
+      height:100%;
+      width:0%;
+      border-radius:999px;
+      background: linear-gradient(90deg, #ff7ab0, #ff2f7a);
+      transition: width .45s ease;
+    }
+
+    /* secret note */
+    .secret{
+      margin-top: 14px;
+      display:none;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(255, 47, 122, 0.09);
+      border: 1px dashed rgba(255, 47, 122, 0.35);
+      font-weight:900;
+      color:#222;
+      line-height:1.5;
+      font-size: clamp(.95rem, 2.7vw, 1.05rem);
+      word-break: break-word;
+    }
+
+    /* cat bubble */
+    .catBox{
+      margin-top: 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+
+    .cat{
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.85);
+      border: 2px solid rgba(255, 47, 122, 0.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 30px;
+      box-shadow: 0 12px 22px rgba(0,0,0,.08);
+      animation: catBounce 1.5s ease-in-out infinite;
+      flex: 0 0 auto;
+      user-select:none;
+    }
+
+    @keyframes catBounce{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-6px); }
+    }
+
+    .bubble{
+      width: min(520px, 100%);
+      text-align:left;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(255, 47, 122, 0.18);
+      box-shadow: 0 12px 22px rgba(0,0,0,.06);
+      font-weight:800;
+      color:#222;
+      line-height:1.4;
+      font-size: clamp(.95rem, 2.6vw, 1.05rem);
+      word-break: break-word;
+    }
+
+    /* GAME AREA */
+    .games{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .gameCard{
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(255, 47, 122, 0.16);
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: 0 12px 22px rgba(0,0,0,.06);
+      text-align:left;
+      min-width: 0;
+    }
+
+    .gameTitle{
+      font-weight:1000;
+      color:#222;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .gameSmall{
+      color:#444;
+      font-weight:800;
+      font-size: .92rem;
+      margin-bottom: 10px;
+      opacity:.95;
+      line-height:1.35;
+    }
+
+    .score{
+      font-weight:1000;
+      color: var(--hot);
+      margin-top: 10px;
+      word-break: break-word;
+    }
+
+    /* feed cat */
+    .snacks{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .snackBtn{
+      border:none;
+      padding: 10px 12px;
+      border-radius: 16px;
+      cursor:pointer;
+      font-weight:1000;
+      background: rgba(255, 47, 122, 0.1);
+      color: var(--hot);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .snackBtn:hover{ transform: scale(1.06); }
+
+    /* catch hearts */
+    .heartZone{
+      height: clamp(140px, 22vw, 170px);
+      border-radius: 18px;
+      border: 2px dashed rgba(255, 47, 122, 0.25);
+      position:relative;
+      overflow:hidden;
+      background: rgba(255, 77, 141, 0.04);
+    }
+    .heart{
+      position:absolute;
+      font-size: clamp(22px, 6vw, 28px);
+      cursor:pointer;
+      user-select:none;
+      animation: heartFloat 1.8s linear forwards;
+    }
+    @keyframes heartFloat{
+      0%{ transform: translateY(180px) scale(1); opacity:1; }
+      100%{ transform: translateY(-60px) scale(1.25); opacity:0; }
+    }
+
+    /* footer */
+    .footer{
+      margin-top: clamp(12px, 2.5vw, 16px);
+      font-size: clamp(.85rem, 2.4vw, .95rem);
+      color:#666;
+    }
+
+    /* sparkles */
+    .sparkle{
+      position:absolute;
+      font-size: 18px;
+      opacity:.95;
+      animation: floatUp 2.2s linear forwards;
+      pointer-events:none;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.12));
+    }
+    @keyframes floatUp{
+      0%{ transform: translateY(0) scale(1); opacity:1; }
+      100%{ transform: translateY(-170px) scale(1.45); opacity:0; }
+    }
+
+    /* confetti */
+    .confetti{
+      position:absolute;
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      opacity:.95;
+      animation: fall 1.8s ease-out forwards;
+      pointer-events:none;
+    }
+    @keyframes fall{
+      0%{ transform: translateY(-20px) rotate(0deg); opacity:1; }
+      100%{ transform: translateY(520px) rotate(420deg); opacity:0; }
+    }
+
+    .wiggle{
+      animation: wiggle .35s ease-in-out;
+    }
+    @keyframes wiggle{
+      0%{ transform: rotate(0deg); }
+      25%{ transform: rotate(-2deg); }
+      50%{ transform: rotate(2deg); }
+      75%{ transform: rotate(-1deg); }
+      100%{ transform: rotate(0deg); }
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 920px){
+      .buttons{ grid-template-columns: 1fr 1fr; }
+      .games{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px){
+      .buttons{ grid-template-columns: 1fr; }
+
+      .nameRow{
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nameRow input,
+      .nameRow button{
+        width: 100%;
+      }
+
+      .topRow{
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .soundToggle{
+        width:100%;
+      }
+    }
+
+    /* extra tiny phones */
+    @media (max-width: 360px){
+      .card{
+        padding: 12px;
+      }
+      .snackBtn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    // Background sticker sets
+    const stickerSets = [
+      ["💗","✨","🌸","💞","🧸","🍓","😳","🐱"],
+      ["🎀","🍭","🧁","💖","✨","🐰","🌷","💞"],
+      ["🌙","⭐","✨","🍓","🧸","💗","😳","🐱"]
+    ];
+
+    let currentSetIndex = 0;
+    let bgNodes = [];
+
+    function spawnBackground(setIndex){
+      bgNodes.forEach(n => n.remove());
+      bgNodes = [];
+
+      const bg = stickerSets[setIndex];
+
+      for(let i=0;i<28;i++){
+        const s = document.createElement("div");
+        s.className = "bg-float";
+        s.textContent = bg[Math.floor(Math.random()*bg.length)];
+        s.style.left = Math.random()*100 + "vw";
+        s.style.animationDuration = (8 + Math.random()*10) + "s";
+        s.style.fontSize = (14 + Math.random()*22) + "px";
+        s.style.animationDelay = (-Math.random()*10) + "s";
+        document.body.appendChild(s);
+        bgNodes.push(s);
+      }
+    }
+
+    spawnBackground(currentSetIndex);
+  </script>
+
+  <div class="card" id="card">
+    <div class="topRow">
+      <div class="miniLabel">cute mode: ON</div>
+      <button class="soundToggle" id="soundToggle">🔊 sound: ON</button>
+    </div>
+
+    <div class="title" id="title">Hey you 😳💗</div>
+    <div class="subtitle" id="subtitle">
+      I send this because you’re cute and I’m bored.<br />
+      That’s it. That’s the whole reason. 😌
+    </div>
+
+    <div class="nameRow">
+      <input id="nameInput" placeholder="Type your name here (optional) 👀" />
+      <button id="setNameBtn">Set Name ✨</button>
+      <button id="switchStickersBtn">Switch Stickers 🎀</button>
+    </div>
+
+    <div class="kawaiiWrap" id="kawaii">
+      <div class="tinyHeart">💗</div>
+      <div class="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="cheek left"></div>
+        <div class="cheek right"></div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+
+    <div class="question" id="question">
+      Choose what you want from me right now 👀
+    </div>
+
+    <div class="buttons">
+      <button class="action" id="sweetBtn">Sweet 🥺</button>
+      <button class="action" id="sillyBtn">Silly 😈</button>
+      <button class="action" id="giftBtn">Gift 🎁</button>
+      <button class="action" id="cameraBtn">Blush Cam 📸</button>
+    </div>
+
+    <div class="panel" id="panel">
+      <div class="line" id="line"></div>
+      <div class="hint">Click again. I have unlimited lines 😭</div>
+
+      <div class="meterWrap">
+        <div class="meterTop">
+          <span>Blush Meter</span>
+          <span id="percent">0%</span>
+        </div>
+        <div class="bar">
+          <div class="fill" id="fill"></div>
+        </div>
+      </div>
+
+      <div class="secret" id="secret">
+        😳 SECRET NOTE UNLOCKED:<br />
+        <span id="secretText"></span>
+      </div>
+
+      <div class="catBox">
+        <div class="cat">🐱</div>
+        <div class="bubble" id="catBubble">
+          hi. i am the cat. i approve this message. 😼💗
+        </div>
+      </div>
+
+      <!-- games -->
+      <div class="games">
+        <div class="gameCard">
+          <div class="gameTitle">🐱 Feed The Cat</div>
+          <div class="gameSmall">Tap snacks. Cat becomes happier. That’s science.</div>
+          <div class="snacks">
+            <button class="snackBtn" data-snack="🍓">🍓 Strawberry</button>
+            <button class="snackBtn" data-snack="🍪">🍪 Cookie</button>
+            <button class="snackBtn" data-snack="🍭">🍭 Candy</button>
+          </div>
+          <div class="score" id="catScore">Cat Happiness: 0%</div>
+        </div>
+
+        <div class="gameCard">
+          <div class="gameTitle">💗 Catch The Hearts</div>
+          <div class="gameSmall">Tap hearts before they escape. No pressure 😌</div>
+          <div class="heartZone" id="heartZone"></div>
+          <div class="score" id="heartScore">Hearts Caught: 0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer" id="footer">
+      If you smile right now… yes, I count that as success 😌✨
+    </div>
+  </div>
+
+  <script>
+    const sweetBtn = document.getElementById("sweetBtn");
+    const sillyBtn = document.getElementById("sillyBtn");
+    const giftBtn = document.getElementById("giftBtn");
+    const cameraBtn = document.getElementById("cameraBtn");
+
+    const panel = document.getElementById("panel");
+    const line = document.getElementById("line");
+    const fill = document.getElementById("fill");
+    const percent = document.getElementById("percent");
+    const card = document.getElementById("card");
+    const kawaii = document.getElementById("kawaii");
+    const secret = document.getElementById("secret");
+    const secretText = document.getElementById("secretText");
+    const catBubble = document.getElementById("catBubble");
+    const soundToggle = document.getElementById("soundToggle");
+
+    const nameInput = document.getElementById("nameInput");
+    const setNameBtn = document.getElementById("setNameBtn");
+    const switchStickersBtn = document.getElementById("switchStickersBtn");
+
+    const title = document.getElementById("title");
+    const subtitle = document.getElementById("subtitle");
+    const question = document.getElementById("question");
+
+    const snacks = document.querySelectorAll(".snackBtn");
+    const catScore = document.getElementById("catScore");
+
+    const heartZone = document.getElementById("heartZone");
+    const heartScore = document.getElementById("heartScore");
+
+    let blush = 0;
+    let soundOn = true;
+
+    let herName = "";
+    let catHappy = 0;
+    let heartsCaught = 0;
+
+    const sweetLines = [
+      "You honestly the kind of pretty that makes my brain go quiet 😳💗",
+      "I’m not flirting… I’m just appreciating you very loudly 😌✨",
+      "If I look at you too long I start smiling like an idiot 😭",
+      "You cute. Like… *dangerously* cute 🧸🍓",
+      "You make my mood better just by existing 🥺💞",
+      "You the reason my screen time is embarrassing 😭📱",
+      "I hope you know you extremely adorable. Like… scientifically.",
+      "Your smile is basically a cheat code for happiness 😭✨",
+      "You the type of cute that makes people forget what they were saying 😭"
+    ];
+
+    const sillyLines = [
+      "Okay 😈 I’m in silly mode. Prepare yourself.",
+      "I miss you. Yes I’m dramatic. Yes I’m also cute 😌💅",
+      "I’m here to steal your attention for 10 seconds… starting now 😭💗",
+      "If you blush, I win. If you don’t blush, I still win 😌✨",
+      "You cute and I’m annoying. This is a powerful combo 🧸",
+      "I’m not obsessed. I’m just… enthusiastically attached 😭",
+      "I’m going to compliment you until you get shy 😌",
+      "Your face is literally my favorite view 😭💗",
+      "I’m not clingy. I’m limited edition 😌✨"
+    ];
+
+    const giftLines = [
+      "🎁 Surprise: you just unlocked 1 free compliment 😌✨",
+      "🎁 Surprise: you the cutest. no refunds.",
+      "🎁 Surprise: i miss you. yes this is your problem now 😌",
+      "🎁 Surprise: you my favorite person to annoy 😭💗",
+      "🎁 Surprise: your smile is illegal (too cute).",
+      "🎁 Surprise: you officially my favorite human 🧸💗",
+      "🎁 Surprise: you make normal days feel better ✨"
+    ];
+
+    const secretNotes = [
+      "I act silly but you genuinely mean a lot to me 🥺💗",
+      "I like talking to you. It feels easy. And safe. 😳",
+      "You my favorite notification. Don’t get cocky 😌",
+      "You make me happy in a quiet way. That’s rare.",
+      "I smile when your name pops up. Yes it’s embarrassing 😭",
+      "If you happy, my brain becomes peaceful. That’s all."
+    ];
+
+    const catLines = [
+      "meow. she is blushing. i can feel it 😼",
+      "cat report: he likes you a lot. confirmed. 🐾",
+      "i am the cat. i demand you smile right now 😌",
+      "if you don’t blush, i will personally be disappointed 😾",
+      "human girl detected. cuteness level: dangerous.",
+      "my professional cat opinion: this is extremely cute.",
+      "meow meow. translate: you adorable 😭"
+    ];
+
+    // FIXED: only replaces the word "you", not inside "your" etc.
+    function withName(txt){
+      if (!herName) return txt;
+
+      // Replace "You" and "you" as whole words only
+      return txt
+        .replace(/\bYou\b/g, herName)
+        .replace(/\byou\b/g, herName);
+    }
+
+    function tinyBeep() {
+      if (!soundOn) return;
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const ctx = new AudioContext();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+
+      o.type = "sine";
+      o.frequency.value = 640 + Math.random() * 140;
+
+      g.gain.value = 0.0001;
+      o.connect(g);
+      g.connect(ctx.destination);
+
+      o.start();
+      g.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+
+      o.stop(ctx.currentTime + 0.2);
+      setTimeout(() => ctx.close(), 250);
+    }
+
+    function sparkleBurst() {
+      const emojis = ["💖","✨","🌸","🍓","💗","😳","🧸","💞","🐱","🎀"];
+      const rect = card.getBoundingClientRect();
+
+      for (let i = 0; i < 18; i++) {
+        const s = document.createElement("div");
+        s.className = "sparkle";
+        s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        const x = rect.left + rect.width / 2 + (Math.random() * 260 - 130);
+        const y = rect.top + rect.height - 40;
+
+        s.style.left = x + "px";
+        s.style.top = y + "px";
+        s.style.animationDuration = (1.5 + Math.random() * 1.2) + "s";
+
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 2800);
+      }
+    }
+
+    function confettiPop() {
+      const rect = card.getBoundingClientRect();
+      for (let i = 0; i < 26; i++) {
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = (rect.left + rect.width / 2 + (Math.random() * 340 - 170)) + "px";
+        c.style.top = (rect.top + 40) + "px";
+        c.style.background = `hsl(${Math.random()*360}, 90%, 70%)`;
+        c.style.animationDuration = (1.3 + Math.random() * 1.2) + "s";
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 2200);
+      }
+    }
+
+    function updateMeter() {
+      fill.style.width = blush + "%";
+      percent.textContent = blush + "%";
+      if (blush >= 100) percent.textContent = "MAX 😳💗";
+    }
+
+    function wiggle(el) {
+      el.classList.remove("wiggle");
+      void el.offsetWidth;
+      el.classList.add("wiggle");
+    }
+
+    function catSpeak() {
+      catBubble.textContent = catLines[Math.floor(Math.random() * catLines.length)];
+    }
+
+    function maybeUnlockSecret() {
+      if (blush >= 80) {
+        secret.style.display = "block";
+        secretText.textContent = withName(secretNotes[Math.floor(Math.random() * secretNotes.length)]);
+      }
+    }
+
+    function show(type) {
+      panel.style.display = "block";
+
+      let arr;
+      if (type === "sweet") arr = sweetLines;
+      if (type === "silly") arr = sillyLines;
+      if (type === "gift") arr = giftLines;
+
+      line.innerHTML = withName(arr[Math.floor(Math.random() * arr.length)]);
+
+      blush = Math.min(100, blush + 12);
+      updateMeter();
+      maybeUnlockSecret();
+
+      sparkleBurst();
+      if (type === "gift") confettiPop();
+
+      tinyBeep();
+      catSpeak();
+
+      wiggle(card);
+      wiggle(kawaii);
+    }
+
+    sweetBtn.addEventListener("click", () => show("sweet"));
+    sillyBtn.addEventListener("click", () => show("silly"));
+    giftBtn.addEventListener("click", () => show("gift"));
+
+    // Blush camera prank
+    cameraBtn.addEventListener("click", () => {
+      panel.style.display = "block";
+      blush = Math.min(100, blush + 18);
+      updateMeter();
+      maybeUnlockSecret();
+
+      sparkleBurst();
+      tinyBeep();
+      catSpeak();
+
+      const who = herName ? herName : "you";
+      line.innerHTML = `📸 Blush Cam Result: <b>${who}</b> is blushing…<br>Confidence: <b>${Math.floor(92 + Math.random()*8)}%</b> 😳`;
+
+      wiggle(card);
+      wiggle(cameraBtn);
+    });
+
+    // sound toggle
+    soundToggle.addEventListener("click", () => {
+      soundOn = !soundOn;
+      soundToggle.textContent = soundOn ? "🔊 sound: ON" : "🔇 sound: OFF";
+      sparkleBurst();
+      wiggle(soundToggle);
+    });
+
+    // set name
+    setNameBtn.addEventListener("click", () => {
+      const v = nameInput.value.trim();
+      if (!v) return;
+
+      herName = v;
+      title.textContent = `Hey ${herName} 😳💗`;
+      subtitle.innerHTML = `I send this because <b>${herName}</b> is cute and I’m bored.<br>That’s it. That’s the whole reason. 😌`;
+      question.textContent = `Okay ${herName}… choose your mood 👀`;
+
+      sparkleBurst();
+      confettiPop();
+      wiggle(setNameBtn);
+    });
+
+    // switch sticker set
+    switchStickersBtn.addEventListener("click", () => {
+      currentSetIndex = (currentSetIndex + 1) % stickerSets.length;
+      spawnBackground(currentSetIndex);
+      sparkleBurst();
+      wiggle(switchStickersBtn);
+    });
+
+    // Feed cat
+    snacks.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const snack = btn.dataset.snack;
+        catHappy = Math.min(100, catHappy + 12);
+        catScore.textContent = `Cat Happiness: ${catHappy}%`;
+
+        blush = Math.min(100, blush + 6);
+        updateMeter();
+        maybeUnlockSecret();
+
+        catBubble.textContent = `meow 😼 i accept ${snack}.`;
+        sparkleBurst();
+        tinyBeep();
+        wiggle(btn);
+
+        if (catHappy >= 100) {
+          catBubble.textContent = "meow. i am FULL. i now approve you even more 😌🐾";
+          confettiPop();
+        }
+      });
+    });
+
+    // Heart mini-game
+    function spawnHeart(){
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.textContent = ["💗","💖","💞"][Math.floor(Math.random()*3)];
+
+      const zoneW = heartZone.clientWidth;
+      const x = Math.max(10, Math.floor(Math.random() * (zoneW - 40)));
+
+      h.style.left = x + "px";
+      h.style.bottom = "-20px";
+
+      h.addEventListener("click", () => {
+        heartsCaught++;
+        heartScore.textContent = `Hearts Caught: ${heartsCaught}`;
+
+        blush = Math.min(100, blush + 5);
+        updateMeter();
+        maybeUnlockSecret();
+
+        sparkleBurst();
+        tinyBeep();
+        h.remove();
+
+        if (heartsCaught % 5 === 0) confettiPop();
+      });
+
+      heartZone.appendChild(h);
+      setTimeout(() => h.remove(), 1900);
+    }
+
+    setInterval(() => {
+      if (panel.style.display === "block") spawnHeart();
+    }, 900);
+  </script>
+
+</body>
+</html>
